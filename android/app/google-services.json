@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1099466343213",
+    "project_id": "desafio-flutter-eccf4",
+    "storage_bucket": "desafio-flutter-eccf4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1099466343213:android:d6b1bf59fe58a2690109a4",
+        "android_client_info": {
+          "package_name": "com.example.desafio_flutter"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA2KlvDoliXHwkL2utqxrw1EA0CQpAC_iE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
