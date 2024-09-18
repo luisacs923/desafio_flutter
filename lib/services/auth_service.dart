@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 
+// serviços de autenticação firebase
 class AuthService {
   Future<String?> registration({
     required String email,
@@ -46,4 +47,26 @@ class AuthService {
       return e.toString();
     }
   }
+  Future<void> updateUserInfo({required String displayName}) async{
+    var user = FirebaseAuth.instance.currentUser;
+    if(user != null){
+      await user.updateDisplayName(displayName);
+    }
+  }
+
+  Future<void> logout() async {
+    await FirebaseAuth.instance.signOut();
+  }
+
+  User? getUserInfo(){
+    return FirebaseAuth.instance.currentUser;
+  }
+
+  Future<void> confirmEmail() async{
+    var user = FirebaseAuth.instance.currentUser;
+    if (user != null) {
+      await user.sendEmailVerification();
+    }
+  }
 }
+

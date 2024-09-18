@@ -1,6 +1,6 @@
 import 'package:desafio_flutter/services/auth_service.dart';
 import 'package:desafio_flutter/views/create_account.dart';
-import 'package:desafio_flutter/views/home.dart';
+import 'package:desafio_flutter/views/main_page.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -15,9 +15,12 @@ class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController _passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
+    final style = theme.textTheme.displayMedium!.copyWith(color: theme.colorScheme.onPrimaryFixedVariant,);
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Login'),
+        title: Text('Login', style: style),
         centerTitle: true,
       ),
       body: Center(
@@ -57,7 +60,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   if (context.mounted) {
                     Navigator.of(context).pushReplacement(
                       MaterialPageRoute(
-                        builder: (context) => const MyHomePage(title: 'Home'),
+                        builder: (context) => const MainPage(),
                       ),
                     );
                   }

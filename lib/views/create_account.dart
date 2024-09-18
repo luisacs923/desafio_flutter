@@ -1,5 +1,5 @@
 import 'package:desafio_flutter/services/auth_service.dart';
-import 'package:desafio_flutter/views/home.dart';
+import 'package:desafio_flutter/views/main_page.dart';
 import 'package:flutter/material.dart';
 
 class CreateAccount extends StatefulWidget {
@@ -14,9 +14,12 @@ class _CreateAccountState extends State<CreateAccount> {
   final TextEditingController _passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
+    final style = theme.textTheme.displayMedium!.copyWith(color: theme.colorScheme.onPrimaryFixedVariant,);
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Create Account'),
+        title: Text('Create Account', style: style,),
         centerTitle: true,
       ),
       body: Center(
@@ -54,8 +57,8 @@ class _CreateAccountState extends State<CreateAccount> {
                 );
                 if(context.mounted) {
                   if (message!.contains('Success')) {
-                    Navigator.of(context).pushReplacement(
-                        MaterialPageRoute(builder: (context) => const MyHomePage(title: 'Home')));
+                    Navigator.of(context).pushAndRemoveUntil(
+                        MaterialPageRoute(builder: (context) => const MainPage()), (r) => false);
                   }
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
